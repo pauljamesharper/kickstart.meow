@@ -253,6 +253,35 @@ Usage:
     '("r" . revert-buffer)
     '("j" . consult-bookmark)) 
 
+(my-defkeymap
+    "dired-file-manager" "C-c d"
+    '("d" . dired)
+    '("j" . dired-jump )) 
+
+(my-defkeymap
+    "eglot-evaluate" "C-c e"
+    '("e" . eglot-reconnect)
+    '("f" . eglot-format )
+    '("l" . consult-flymake)
+    '("b" . eval-buffer)
+    '("r" . eval-region)) 
+
+(my-defkeymap
+     "git" "C-c g"
+    '("g" . magit-status))
+
+(my-defkeymap
+    "quit" "C-c q"
+    '("q" . save-buffers-kill-emacs)
+    '("r" . restart-emacs))
+
+(my-defkeymap
+    "show" "C-c s"
+    '("e" eat)) ;; eat terminal
+
+(my-defkeymap "toggle" "C-c t"
+    '("t" . visual-line-mode)
+    '("l" . display-line-numbers-mode))
 #+end_src
 ** Good Defaults
 #+begin_src emacs-lisp
