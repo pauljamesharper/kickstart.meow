@@ -11,8 +11,9 @@
   - [[#startup-performance][Startup Performance]]
   - [[#auto-tangle-configuration-file][Auto-tangle Configuration file]]
   - [[#use-package][Use Package]]
-  - [[#evil-mode][Evil Mode]]
-  - [[#general-keybindings][General Keybindings]]
+  - [[#meow-modal-editing][Meow Modal Editing]]
+  - [[#meow-keybinds-macro][Meow Keybinds Macro]]
+  - [[#meow-define-keymap][Meow Define Keymap]]
   - [[#good-defaults][Good Defaults]]
 - [[#appearance][Appearance]]
   - [[#set-theme][Set Theme]]
@@ -104,113 +105,131 @@ With Emacs 29 use-package is now built-in.
                              ("nongnu" . "https://elpa.nongnu.org/nongnu/"))) ;; For Eat Terminal
 #+end_src
 
-** Evil Mode
-An extensible vi/vim layer for Emacs. Because…let’s face it. The Vim keybindings are just plain better.
-Notes:
-- You can toggle evil mode with C-z.
-- To paste without copy (yank) select the text and use P (shift-p).
+** Meow Modal Editing
 
-If you don't want to use evil-mode don't forget to remove:
-- Messages buffer fix in Good default section (:ghook)
-- And also change general.el keybindings and setup (general-evil-setup, :states, etc.)
 #+begin_src emacs-lisp
-    ;; (use-package evil
-    ;;   :init ;; Execute code Before a package is loaded
-    ;;   (evil-mode)
-    ;;   :config ;; Execute code After a package is loaded
-    ;;   (evil-set-initial-state 'eat-mode 'insert) ;; Set initial state in eat terminal to insert mode
-    ;;   :custom ;; Customization of package custom variables
-    ;;   (evil-want-keybinding nil)    ;; Disable evil bindings in other modes (It's not consistent and not good)
-    ;;   (evil-want-C-u-scroll t)      ;; Set C-u to scroll up
-    ;;   (evil-want-C-i-jump nil)      ;; Disables C-i jump
-    ;;   (evil-undo-system 'undo-redo) ;; C-r to redo
-    ;;   (org-return-follows-link t)   ;; Sets RETURN key in org-mode to follow links
-    ;;   ;; Unmap keys in 'evil-maps. If not done, org-return-follows-link will not work
-    ;;   :bind (:map evil-motion-state-map
-    ;;               ("SPC" . nil)
-    ;;               ("RET" . nil)
-    ;;               ("TAB" . nil)))
-    ;; (use-package evil-collection
-    ;;   :after evil
-    ;;   :config
-    ;;   ;; Setting where to use evil-collection
-    ;;   (setq evil-collection-mode-list '(dired ibuffer magit corfu vertico consult))
-    ;;   (evil-collection-init))
+(use-package meow
+   :config
+(defun meow-setup ()
+  (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+  (setq meow-use-clipboard t)
+  (meow-motion-overwrite-define-key
+   '("j" . meow-next)
+   '("k" . meow-prev)
+   '("<escape>" . ignore))
+  (meow-leader-define-key
+   ;; SPC j/k will run the original command in MOTION state.
+   '("j" . "H-j")
+   '("k" . "H-k")
+   ;; Use SPC (0-9) for digit arguments.
+   '("1" . meow-digit-argument)
+   '("2" . meow-digit-argument)
+   '("3" . meow-digit-argument)
+   '("4" . meow-digit-argument)
+   '("5" . meow-digit-argument)
+   '("6" . meow-digit-argument)
+   '("7" . meow-digit-argument)
+   '("8" . meow-digit-argument)
+   '("9" . meow-digit-argument)
+   '("0" . meow-digit-argument)
+   '("/" . meow-keypad-describe-key)
+   '("?" . meow-cheatsheet))
+  (meow-normal-define-key
+   '("0" . meow-expand-0)
+   '("9" . meow-expand-9)
+   '("8" . meow-expand-8)
+   '("7" . meow-expand-7)
+   '("6" . meow-expand-6)
+   '("5" . meow-expand-5)
+   '("4" . meow-expand-4)
+   '("3" . meow-expand-3)
+   '("2" . meow-expand-2)
+   '("1" . meow-expand-1)
+   '("-" . negative-argument)
+   '(";" . meow-reverse)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("[" . meow-beginning-of-thing)
+   '("]" . meow-end-of-thing)
+   '("a" . meow-append)
+   '("A" . meow-open-below)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
+   '("c" . meow-change)
+   '("d" . meow-delete)
+   '("D" . meow-backward-delete)
+   '("e" . meow-next-word)
+   '("E" . meow-next-symbol)
+   '("f" . meow-find)
+   '("g" . meow-cancel-selection)
+   '("G" . meow-grab)
+   '("h" . meow-left)
+   '("H" . meow-left-expand)
+   '("i" . meow-insert)
+   '("I" . meow-open-above)
+   '("j" . meow-next)
+   '("J" . meow-next-expand)
+   '("k" . meow-prev)
+   '("K" . meow-prev-expand)
+   '("l" . meow-right)
+   '("L" . meow-right-expand)
+   '("m" . meow-join)
+   '("n" . meow-search)
+   '("o" . meow-block)
+   '("O" . meow-to-block)
+   '("p" . meow-yank)
+   '("q" . meow-quit)
+   '("Q" . meow-goto-line)
+   '("r" . meow-replace)
+   '("R" . meow-swap-grab)
+   '("s" . meow-kill)
+   '("t" . meow-till)
+   '("u" . meow-undo)
+   '("U" . meow-undo-in-selection)
+   '("v" . meow-visit)
+   '("w" . meow-mark-word)
+   '("W" . meow-mark-symbol)
+   '("x" . meow-line)
+   '("X" . meow-goto-line)
+   '("y" . meow-save)
+   '("Y" . meow-sync-grab)
+   '("z" . meow-pop-selection)
+   '("'" . repeat)
+   '("<escape>" . ignore)))
+
+(require 'meow)
+(meow-setup)
+(meow-setup-indicator)
+(meow-global-mode 1))
 #+end_src
 
-** General Keybindings
-A keybinding framework to set keybindings easily.
-The Leader key is what you will press when you want to access your keybindings (SPC + . Find file).
-To search and replace, use query-replace-regexp to replace one by one C-M-% (SPC to replace n to skip).
+** Meow Keybinds Macro
 #+begin_src emacs-lisp
-    ;; (use-package general
-    ;;   :config
-    ;;   (general-evil-setup)
-    ;;   ;; Set up 'SPC' as the leader key
-    ;;   (general-create-definer start/leader-keys
-    ;;     :states '(normal insert visual motion emacs)
-    ;;     :keymaps 'override
-    ;;     :prefix "SPC"           ;; Set leader key
-    ;;     :global-prefix "C-SPC") ;; Set global leader key
+(defmacro my-defkeymap (name prefix &rest bindings)
+  "Create a new NAME-keymap bound to PREFIX, with BINDINGS.
 
-    ;;   (start/leader-keys
-    ;;     "." '(find-file :wk "Find file")
-    ;;     "TAB" '(comment-line :wk "Comment lines")
-    ;;     "p" '(projectile-command-map :wk "Projectile command map"))
+Usage:
+  (my-defkeymap \"my-git\" \"C-c g\"
+    '(\"s\" . magit-status))
+"
+  (let* ((keymap-name (intern (concat name "-keymap")))
+         (keymap-alias (intern name))
+         (keymap-bindings (mapcar
+                           (lambda (binding)
+                             (let ((binding (eval binding)))
+                               `(define-key ,keymap-name (kbd ,(car binding)) #',(cdr binding))))
+                           bindings)))
+    `(progn
+       (defvar ,keymap-name (make-sparse-keymap))
+       (defalias ',keymap-alias ,keymap-name)
+       (global-set-key (kbd ,prefix) ',keymap-alias)
+       ,@keymap-bindings)))
 
-    ;;   (start/leader-keys
-    ;;     "f" '(:ignore t :wk "Find")
-    ;;     "f c" '((lambda () (interactive) (find-file "~/.config/emacs/config.org")) :wk "Edit emacs config")
-    ;;     "f r" '(consult-recent-file :wk "Recent files")
-    ;;     "f f" '(consult-fd :wk "Fd search for files")
-    ;;     "f g" '(consult-ripgrep :wk "Ripgrep search in files")
-    ;;     "f l" '(consult-line :wk "Find line")
-    ;;     "f i" '(consult-imenu :wk "Imenu buffer locations"))
-
-    ;;   (start/leader-keys
-    ;;     "b" '(:ignore t :wk "Buffer Bookmarks")
-    ;;     "b b" '(consult-buffer :wk "Switch buffer")
-    ;;     "b k" '(kill-this-buffer :wk "Kill this buffer")
-    ;;     "b i" '(ibuffer :wk "Ibuffer")
-    ;;     "b n" '(next-buffer :wk "Next buffer")
-    ;;     "b p" '(previous-buffer :wk "Previous buffer")
-    ;;     "b r" '(revert-buffer :wk "Reload buffer")
-    ;;     "b j" '(consult-bookmark :wk "Bookmark jump"))
-
-    ;;   (start/leader-keys
-    ;;     "d" '(:ignore t :wk "Dired")
-    ;;     "d v" '(dired :wk "Open dired")
-    ;;     "d j" '(dired-jump :wk "Dired jump to current"))
-
-    ;;   (start/leader-keys
-    ;;     "e" '(:ignore t :wk "Eglot Evaluate")
-    ;;     "e e" '(eglot-reconnect :wk "Eglot Reconnect")
-    ;;     "e f" '(eglot-format :wk "Eglot Format")
-    ;;     "e l" '(consult-flymake :wk "Consult Flymake")
-    ;;     "e b" '(eval-buffer :wk "Evaluate elisp in buffer")
-    ;;     "e r" '(eval-region :wk "Evaluate elisp in region"))
-
-    ;;   (start/leader-keys
-    ;;     "g" '(:ignore t :wk "Git")
-    ;;     "g g" '(magit-status :wk "Magit status"))
-
-    ;;   (start/leader-keys
-    ;;     "h" '(:ignore t :wk "Help") ;; To get more help use C-h commands (describe variable, function, etc.)
-    ;;     "h q" '(save-buffers-kill-emacs :wk "Quit Emacs and Daemon")
-    ;;     "h r" '((lambda () (interactive)
-    ;;               (load-file "~/.config/emacs/init.el"))
-    ;;             :wk "Reload Emacs config"))
-
-    ;;   (start/leader-keys
-    ;;     "s" '(:ignore t :wk "Show")
-    ;;     "s e" '(eat :wk "Eat terminal"))
-
-    ;;   (start/leader-keys
-    ;;     "t" '(:ignore t :wk "Toggle")
-    ;;     "t t" '(visual-line-mode :wk "Toggle truncated lines (wrap)")
-    ;;     "t l" '(display-line-numbers-mode :wk "Toggle line numbers")))
 #+end_src
+** Meow Define Keymap
+#+begin_src emacs-lisp
 
+#+end_src
 ** Good Defaults
 #+begin_src emacs-lisp
     (use-package emacs
