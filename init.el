@@ -143,7 +143,7 @@ Usage:
 
 (my-defkeymap
     "find" "C-c f"
-    '("r" . consult-recent-file)
+    '("r" .  consult-recent-file)
     '("f" . consult-fd)
     '("g" . consult-ripgrep)
     '("l" . consult-line)
@@ -151,7 +151,7 @@ Usage:
 
 (my-defkeymap
     "buffer-bookmarks" "C-c b"
-    '("b" . consult-buffer )
+    '("b" . consult-buffer ) 
     '("k" . kill-this-buffer)
     '("i" . ibuffer)
     '("n" . next-buffer)
@@ -186,8 +186,11 @@ Usage:
     '("e" eat)) ;; eat terminal
 
 (my-defkeymap "toggle" "C-c t"
-    '("t" . visual-line-mode)
-    '("l" . display-line-numbers-mode))
+    '("v" . visual-line-mode)
+    '("l" . display-line-numbers-mode)
+    '("t" . modus-themes-toggle)
+    '("m" . modus-themes-select)
+    '("s" . consult-theme))
 
 (use-package emacs
   :custom
@@ -236,9 +239,15 @@ Usage:
   ;;         nil nil t)
   ;; )
 
-(use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-dark-medium t)) ;; We need to add t to trust this package
+(use-package modus-themes
+  :custom
+  (modus-themes-italic-constructs t)
+  (modus-themes-bold-constructs t)
+  (modus-themes-mixed-fonts t)
+  (modus-themes-to-toggle
+   '(modus-operandi-tinted modus-vivendi-tinted))
+  :init
+  (load-theme 'modus-vivendi-tinted :no-confirm))
 
 (add-to-list 'default-frame-alist '(alpha-background . 90)) ;; For all new frames henceforth
 
