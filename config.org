@@ -338,8 +338,7 @@ Usage:
 
 * Appearance
 ** Set Theme
-Set gruvbox theme, if you want some themes try out doom-themes.
-Use consult-theme to easily try out themes (*Epilepsy* Warning).
+Using Prot's modus-themes. Set to toggle a light and dark variant. Prefered starting theme is set by :init. 
 #+begin_src emacs-lisp
 (use-package modus-themes
   :custom
@@ -358,7 +357,7 @@ With Emacs version 29, true transparency has been added.
     (add-to-list 'default-frame-alist '(alpha-background . 90)) ;; For all new frames henceforth
 #+end_src
 
-** Fonts
+** Fonts 
 *** Setting fonts
 #+begin_src emacs-lisp
     (set-face-attribute 'default nil
