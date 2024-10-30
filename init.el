@@ -142,12 +142,22 @@ Usage:
        ,@keymap-bindings)))
 
 (my-defkeymap
-   "find" "C-c f"
-   '("r" . consult-recent-file)
-   '("f" . consult-fd)
-   '("g" . consult-ripgrep)
-   '("l" . consult-line)
-   '("i" . consult-imenu))
+    "find" "C-c f"
+    '("r" . consult-recent-file)
+    '("f" . consult-fd)
+    '("g" . consult-ripgrep)
+    '("l" . consult-line)
+    '("i" . consult-imenu))
+
+(my-defkeymap
+    "buffer-bookmarks" "C-c b"
+    '("b" . consult-buffer )
+    '("k" . kill-this-buffer)
+    '("i" . ibuffer)
+    '("n" . next-buffer)
+    '("p" . previous-buffer)
+    '("r" . revert-buffer)
+    '("j" . consult-bookmark))
 
 (use-package emacs
   :custom

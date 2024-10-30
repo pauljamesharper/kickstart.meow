@@ -1,6 +1,8 @@
-#+Title: Emacs Kickstarter
-#+Author: MiniApollo
-#+Description: A starting point for Gnu Emacs with good defaults and packages that most people may want to use.
+
+
+#+Title: Meow Emacs Kickstarter
+#+Author: MiniApollo revised by Paul Harper 
+#+Description: A starting point for Gnu Emacs with good defaults, meow modal keybindings, and packages that most people may want to use.
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 #+Startup: showeverything
 #+Options: toc:2
@@ -11,7 +13,8 @@
   - [[#startup-performance][Startup Performance]]
   - [[#auto-tangle-configuration-file][Auto-tangle Configuration file]]
   - [[#use-package][Use Package]]
-  - [[#meow-modal-editing][Meow Modal Editing]]
+- [[#modal-editing][Modal Editing]]
+  - [[#meow][Meow]]
   - [[#meow-keybinds-macro][Meow Keybinds Macro]]
   - [[#meow-define-keymap][Meow Define Keymap]]
   - [[#good-defaults][Good Defaults]]
@@ -105,7 +108,9 @@ With Emacs 29 use-package is now built-in.
                              ("nongnu" . "https://elpa.nongnu.org/nongnu/"))) ;; For Eat Terminal
 #+end_src
 
-** Meow Modal Editing
+* Modal Editing
+
+** Meow
 
 #+begin_src emacs-lisp
 (use-package meow
@@ -228,13 +233,26 @@ Usage:
 #+end_src
 ** Meow Define Keymap
 #+begin_src emacs-lisp
- (my-defkeymap
+ 
+
+(my-defkeymap
     "find" "C-c f"
     '("r" . consult-recent-file)
     '("f" . consult-fd)
     '("g" . consult-ripgrep)
     '("l" . consult-line)
     '("i" . consult-imenu))
+
+(my-defkeymap
+    "buffer-bookmarks" "C-c b"
+    '("b" . consult-buffer )
+    '("k" . kill-this-buffer)
+    '("i" . ibuffer)
+    '("n" . next-buffer)
+    '("p" . previous-buffer)
+    '("r" . revert-buffer)
+    '("j" . consult-bookmark)) 
+
 #+end_src
 ** Good Defaults
 #+begin_src emacs-lisp
