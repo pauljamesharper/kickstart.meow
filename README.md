@@ -1,4 +1,5 @@
-https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg
+
+[![meow logo]([https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg]))
 
 # Table of Contents
 
