@@ -20,7 +20,7 @@ https://github.com/MiniApollo/kickstart.emacs/assets/72389030/5c66130d-66b9-459b
 <a id="orgb229cbd"></a>
 
 # Introduction
-This repository gives you a starting point for Gnu Emacs with good defaults, vim keybindings and packages that most people may want to use.
+This repository gives you a starting point for Gnu Emacs with good defaults, meow modal keybindings and packages that most people may want to use.
 
 Kickstart.emacs is **not** a distribution. <br>
 It's a template for your own configuration.
