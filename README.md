@@ -45,7 +45,7 @@ Their content helped me to create this configuration.
 ### Included Package list
 
 -   Package Manager: Package.el with Use-package (built in)
--   [Evil mode](https://github.com/emacs-evil/evil): An extensible vi/vim layer
+-   [meow](https://github.com/meow-edit/meow?tab=readme-ov-file): Meow is yet another modal editing mode for Emacs.
 -   [General](https://github.com/noctuid/general.el): Keybindings
 -   [Gruvbox-theme](https://github.com/greduan/emacs-theme-gruvbox): Color scheme
 -   [Doom-modeline](https://github.com/seagle0128/doom-modeline): Prettier, more useful modeline
