@@ -129,18 +129,18 @@ If any exists.
 
 ### Linux and Mac
 ```sh
-git clone https://github.com/MiniApollo/kickstart.emacs.git "${XDG_CONFIG_HOME:-$HOME/.config}"/emacs
+git clone git@github.com:pauljamesharper/kickstart.meow.git "${XDG_CONFIG_HOME:-$HOME/.config}"/emacs
 ```
 
 ### Windows
 
 -   **CMD:**
 ```sh
-git clone https://github.com/MiniApollo/kickstart.emacs.git %userprofile%\AppData\Local\emacs\
+git clone git@github.com:pauljamesharper/kickstart.meow.git %userprofile%\AppData\Local\emacs\
 ```
 -   **Powershell:**
 ```sh
-git clone https://github.com/MiniApollo/kickstart.emacs.git $env:USERPROFILE\AppData\Local\emacs\
+git clone git@github.com:pauljamesharper/kickstart.meow.git $env:USERPROFILE\AppData\Local\emacs\
 ```
 
 <a id="orgd77a070"></a>
