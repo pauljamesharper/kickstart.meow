@@ -222,23 +222,23 @@ Usage:
 
 (my-defkeymap
      "git" "C-c g"
-    '("g" . magit-status))
+    '("g" . ("Magit Status" . magit-status)))
 
 (my-defkeymap
     "quit" "C-c q"
-    '("q" . save-buffers-kill-emacs)
-    '("r" . restart-emacs))
+    '("q" . ("Save buffers and Kill Emacs" . save-buffers-kill-emacs))
+    '("r" . ("Restart Emacs" . restart-emacs)))
 
 (my-defkeymap
     "show" "C-c s"
     '("e". ("Eat terminal" . eat))) 
 
 (my-defkeymap "toggle" "C-c t"
-    '("v" . visual-line-mode)
-    '("l" . display-line-numbers-mode)
-    '("t" . modus-themes-toggle)
-    '("m" . modus-themes-select)
-    '("s" . consult-theme))
+    '("v" . ("Toggle truncated lines (wrap)" . visual-line-mode))
+    '("l" . ("Toggle line numbers" . display-line-numbers-mode))
+    '("t" . ("Toggle Modus Themes" . modus-themes-toggle))
+    '("m" . ("Select Modus Themes" . modus-themes-select))
+    '("s" . ("Toggle Consult Themes" . consult-theme)))
 
 (use-package modus-themes
   :custom
