@@ -49,7 +49,6 @@ Their content helped me to create this configuration.
 
 -   Package Manager: Package.el with Use-package (built in)
 -   [meow](https://github.com/meow-edit/meow?tab=readme-ov-file): Meow is yet another modal editing mode for Emacs.
--   [General](https://github.com/noctuid/general.el): Keybindings
 -   [Gruvbox-theme](https://github.com/greduan/emacs-theme-gruvbox): Color scheme
 -   [Doom-modeline](https://github.com/seagle0128/doom-modeline): Prettier, more useful modeline
 -   [Projectile](https://github.com/bbatsov/projectile): Project interaction library
