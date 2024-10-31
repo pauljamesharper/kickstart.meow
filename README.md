@@ -1,4 +1,4 @@
- [[https://github.com/meow-edit/meow/actions/workflows/action.yml][https://github.com/meow-edit/meow/actions/workflows/action.yml/badge.svg]]
+ [[https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg][[https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg]]
 
 [[file:meow.svg]]
 
