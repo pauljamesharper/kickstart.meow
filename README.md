@@ -1,3 +1,4 @@
+ [[https://github.com/meow-edit/meow/actions/workflows/action.yml][https://github.com/meow-edit/meow/actions/workflows/action.yml/badge.svg]]
 
 [[file:meow.svg]]
 
