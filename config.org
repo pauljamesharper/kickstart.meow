@@ -237,6 +237,7 @@ Usage:
 
 (my-defkeymap
     "find" "C-c f"
+    '("c" . "Edit emacs config" . (lambda () (interactive) (find-file "~/.config/emacs/config.org")))
     '("r" .  consult-recent-file)
     '("f" . consult-fd)
     '("g" . consult-ripgrep)
