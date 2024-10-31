@@ -306,8 +306,8 @@ Usage:
 
 (my-defkeymap
     "dired-file-manager" "C-c d"
-    '("d" . dired)
-    '("j" . dired-jump )) 
+    '("d" . ("Open Dired" . dired))
+    '("j" . ("Dired Jump to current" . dired-jump))) 
 
 (my-defkeymap
     "eglot-evaluate" "C-c e"
@@ -328,7 +328,7 @@ Usage:
 
 (my-defkeymap
     "show" "C-c s"
-    '("e". ("Eat terminal" . eat)) 
+    '("e". ("Eat terminal" . eat))) 
 
 (my-defkeymap "toggle" "C-c t"
     '("v" . visual-line-mode)
