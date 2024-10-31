@@ -311,11 +311,11 @@ Usage:
 
 (my-defkeymap
     "eglot-evaluate" "C-c e"
-    '("e" . eglot-reconnect)
-    '("f" . eglot-format )
-    '("l" . consult-flymake)
-    '("b" . eval-buffer)
-    '("r" . eval-region)) 
+    '("e" . ("Eglot Reconnect" . eglot-reconnect))
+    '("f" . ("Eglot Format" . eglot-format ))
+    '("l" . ("Consult Flymake" . consult-flymake))
+    '("b" . ("Evaluate elisp in buffer" . eval-buffer))
+    '("r" . ("Evaluate elisp in region" . eval-region))) 
 
 (my-defkeymap
      "git" "C-c g"
