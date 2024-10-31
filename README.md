@@ -1,4 +1,4 @@
- [[https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg][https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg]]
+# _Kickstart Meow Emacs_
 
 ![meow modal editing logo](https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg?raw=true)
 
