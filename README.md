@@ -1,6 +1,6 @@
 # _Kickstart Meow Emacs_
 
-![meow modal editing logo](https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg?raw=true)
+![meow modal editing tutor](https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.png)
 
 # Table of Contents
 
@@ -37,6 +37,7 @@ Inspired by [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 Special thanks to:
 -   [DistroTube](https://www.youtube.com/watch?v=d1fgypEiQkE&list=PL5--8gKSku15e8lXf7aLICFmAHQVo0KXX)
 -   [System Crafters](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ)
+-   [Protesilaos Stavrou](https://protesilaos.com/)
 
 Their content helped me to create this configuration.
 
@@ -48,7 +49,6 @@ Their content helped me to create this configuration.
 
 -   Package Manager: Package.el with Use-package (built in)
 -   [meow](https://github.com/meow-edit/meow?tab=readme-ov-file): Meow is yet another modal editing mode for Emacs.
--   [General](https://github.com/noctuid/general.el): Keybindings
 -   [Gruvbox-theme](https://github.com/greduan/emacs-theme-gruvbox): Color scheme
 -   [Doom-modeline](https://github.com/seagle0128/doom-modeline): Prettier, more useful modeline
 -   [Projectile](https://github.com/bbatsov/projectile): Project interaction library
@@ -194,8 +194,3 @@ To uninstall kickstart.emacs, you need to remove the following directory:
 -   Delete the emacs folder/directory for your OS (E.g. $HOME/.config/emacs/).
 
 <a id="orgc18728a"></a>
-
-# Gallery
-
-![Emacs_KickStarter](https://github.com/MiniApollo/kickstart.emacs/assets/72389030/b82bb86b-ce49-4b0a-8fe7-2ca8b8c422fb)
-![Kickstart_coding](https://github.com/MiniApollo/kickstart.emacs/assets/72389030/8e560d2b-78f5-4306-8f6a-c70ad189f181)
