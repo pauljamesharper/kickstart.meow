@@ -1,4 +1,4 @@
- [[https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg][[https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg]]
+ [[https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg][https://github.com/pauljamesharper/kickstart.meow/blob/main/meow.svg]]
 
 [[file:meow.svg]]
 
