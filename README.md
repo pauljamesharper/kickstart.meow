@@ -24,7 +24,7 @@
 # Introduction
 This repository gives you a starting point for Gnu Emacs with good defaults, meow modal keybindings and packages that most people may want to use.
 
-Kickstart.emacs is **not** a distribution. <br>
+Kickstart.meow is **not** a distribution. <br>
 It's a template for your own configuration.
 
 This config is:
