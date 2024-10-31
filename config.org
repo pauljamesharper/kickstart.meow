@@ -296,13 +296,13 @@ Usage:
 
 (my-defkeymap
     "buffer-bookmarks" "C-c b"
-    '("b" . consult-buffer ) 
-    '("k" . kill-this-buffer)
-    '("i" . ibuffer)
-    '("n" . next-buffer)
-    '("p" . previous-buffer)
-    '("r" . revert-buffer)
-    '("j" . consult-bookmark)) 
+    '("b" . ("Switch Buffer" . consult-buffer)) 
+    '("k" . ("Kill this Buffer" . kill-this-buffer))
+    '("i" . ("Ibuffer" . ibuffer))
+    '("n" . ("Next Buffer" . next-buffer))
+    '("p" . ("Previous Buffer" . previous-buffer))
+    '("r" . ("Reload Buffer" . revert-buffer))
+    '("j" . ("Bookmark Jump" . consult-bookmark))) 
 
 (my-defkeymap
     "dired-file-manager" "C-c d"
@@ -328,7 +328,7 @@ Usage:
 
 (my-defkeymap
     "show" "C-c s"
-    '("e" eat)) ;; eat terminal
+    '("e". ("Eat terminal" . eat)) 
 
 (my-defkeymap "toggle" "C-c t"
     '("v" . visual-line-mode)
